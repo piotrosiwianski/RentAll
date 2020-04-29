@@ -1,0 +1,7 @@
+<p>Wypozyczone przedmioty: {{itemsRented.length}}</p>
+<ul>
+  <li *ngFor="let item of itemsRented">
+    {{item.name}}
+    <button type="button" class="btn-sm" (click)="back(item)">Oddaj</button>
+  </li>
+</ul>

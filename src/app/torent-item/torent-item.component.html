@@ -1,0 +1,13 @@
+<ng-container *ngIf="itemsList.length > 0; else noItem">
+  <p>Przedmioty do wypozyczenia: {{itemsList.length}}</p>
+  <ul>
+    <li *ngFor="let item of itemsList">
+      {{item.name}}
+      <button type="button" class="btn-sm" (click)="remove(item)">Usun</button>
+      <button type="button" class="btn btn-success btn-sm" (click)="rented(item)">Wypozycz</button>
+    </li>
+  </ul>
+</ng-container>
+<ng-template #noItem>
+  <p>Brak przedmiotow do wypozyczenia. Dodaj przedmiot.</p>
+</ng-template>
