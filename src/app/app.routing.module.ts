@@ -4,6 +4,8 @@ import { RentedItemComponent } from "./rented-item/rented-item.component";
 import { TorentItemComponent } from "./torent-item/torent-item.component";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+import { LoginComponent } from "./auth/login/login.component";
+import { AuthGuardService } from "./auth/auth-guard.service";
 
 const appRoutes: Routes = [
   {
@@ -18,14 +20,21 @@ const appRoutes: Routes = [
   {
     path: "addItem",
     component: AddItemComponent,
+    canActivate: [AuthGuardService],
   },
   {
     path: "torentItem",
     component: TorentItemComponent,
+    canActivate: [AuthGuardService],
   },
   {
     path: "rentedItem",
     component: RentedItemComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: "login",
+    component: LoginComponent,
   },
 ];
 
