@@ -19,4 +19,8 @@ export class AddItemComponent implements OnInit {
     this.itemsService.add(item);
     this.newItem = "";
   }
+  save() {
+    this.itemsService.saveItemsFirebase();
+    // this.itemsService.saveItemsFirebase();
+  }
 }

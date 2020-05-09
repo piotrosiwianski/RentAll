@@ -1,3 +1,5 @@
+import { HttpService } from "./services/http.service";
+import { HttpClientModule } from "@angular/common/http";
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuthModule } from "angularfire2/auth";
 import { AppRoutingModule } from "./app.routing.module";
@@ -15,13 +17,15 @@ import { LoginComponent } from "./auth/login/login.component";
 import { AuthGuardService } from "./auth/auth-guard.service";
 import { AuthService } from "./auth/auth.service";
 
-const config = {
-  apiKey: "AIzaSyBwl37LxrwR1nFTVDOIs_nwB0cmwsJu15c",
-  authDomain: "auth-18e17.firebaseapp.com",
-  databaseURL: "https://auth-18e17.firebaseio.com",
-  projectId: "auth-18e17",
-  storageBucket: "auth-18e17.appspot.com",
-  messagingSenderId: "873460317660",
+const firebaseConfig = {
+  apiKey: "AIzaSyBL39YrwlcI9fmIs2tVKTSvD-cw4EPJe1M",
+  authDomain: "rentall-98336.firebaseapp.com",
+  databaseURL: "https://rentall-98336.firebaseio.com",
+  projectId: "rentall-98336",
+  storageBucket: "rentall-98336.appspot.com",
+  messagingSenderId: "898461990196",
+  appId: "1:898461990196:web:aca7bafbe55c5d9cb5f961",
+  measurementId: "G-QJT9CBX0M3",
 };
 
 @NgModule({
@@ -38,10 +42,11 @@ const config = {
     FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(config),
+    AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
+    HttpClientModule,
   ],
-  providers: [ItemsService, AuthGuardService, AuthService],
+  providers: [ItemsService, AuthGuardService, AuthService, HttpService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

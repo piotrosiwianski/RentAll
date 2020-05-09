@@ -1,6 +1,7 @@
 import { Item } from "./../models/item";
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
+import { HttpService } from "./http.service";
 
 @Injectable()
 export class ItemsService {
@@ -10,7 +11,7 @@ export class ItemsService {
   private itemsListObs = new BehaviorSubject<Array<Item>>(this.itemsList);
   private itemsRentedObs = new BehaviorSubject<Array<Item>>(this.itemsRented);
 
-  constructor() {
+  constructor(private httpService: HttpService) {
     this.itemsList = [
       { name: "Wiertarka" },
       { name: "Drabina" },
@@ -54,5 +55,8 @@ export class ItemsService {
   }
   getItemsRentedObs(): Observable<Array<Item>> {
     return this.itemsRentedObs.asObservable();
+  }
+  saveItemsFirebase() {
+    this.httpService.saveItems(this.itemsListObs.getValue());
   }
 }
