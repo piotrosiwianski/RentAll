@@ -17,7 +17,7 @@ export class AuthService {
     this.angularFire.auth
       .signInWithEmailAndPassword(email, password)
       .then((user) => {
-        this.router.navigate(["/todoTask"]);
+        this.router.navigate(["/torentItem"]);
       })
       .catch((err) => {
         console.log(err);
